@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Employee Form</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        }
+        fieldset {
+        margin-bottom: 20px;
+        padding: 15px;
+        }
+        label {
+        display: inline-block;
+        width: 150px;
+        vertical-align: top;
+        margin-bottom: 10px;
+        }
+        input, select, textarea {
+        width: 250px;
+        margin-bottom: 10px;
+        }
+        .row {
+        margin-bottom: 10px;
+        }
+    </style>
+    </head>
+    <body>
+
+    <form>
+        <!-- Basic Info -->
+        <fieldset>
+        <legend>Basic Info</legend>
+        <div class="row"><label>Employee ID:</label><input type="text" value="9" readonly></div>
+        <div class="row"><label>Last Name:</label><input type="text" value="Dodsworth"></div>
+        <div class="row"><label>First Name:</label><input type="text" value="Anne"></div>
+        <div class="row"><label>Gender:</label>
+            <input type="radio" name="gender" checked> Male
+            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender"> XXX
+            <input type="radio" name="gender"> ZZZ
+        </div>
+        <div class="row"><label>Title:</label><input type="text" value="Sales Representative"></div>
+        <div class="row"><label>Suffix:</label><input type="text" value="Ms."></div>
+        <div class="row"><label>BirthDate:</label><input type="date" value="1969-07-02"></div>
+        <div class="row"><label>HireDate:</label><input type="date" value="1994-11-15"></div>
+        <div class="row"><label>SSN:</label><input type="text"></div>
+        <div class="row"><label>Reports To:</label>
+            <select>
+            <option>Buchanan</option>
+            </select>
+        </div>
+        </fieldset>
+
+        <!-- Contact Info -->
+        <fieldset>
+        <legend>Contact Info</legend>
+        <div class="row"><label>Email:</label><input type="email" value="name@example.com"></div>
+        <div class="row"><label>Address:</label><input type="text" value="7 Houndstooth Rd."></div>
+        <div class="row"><label>City:</label><input type="text" value="London"></div>
+        <div class="row"><label>Region:</label><input type="text"></div>
+        <div class="row"><label>Postal Code:</label><input type="text" value="WG2 7LT"></div>
+        <div class="row"><label>Country:</label>
+            <select>
+            <option>Russian Federation</option>
+            </select>
+        </div>
+        <div class="row"><label>US Home Phone:</label><input type="tel" value="(234)234-2342"></div>
+        <div class="row"><label>Photo:</label><input type="file"></div>
+        </fieldset>
+
+        <!-- Optional Info -->
+        <fieldset>
+        <legend>Optional Info</legend>
+        <div class="row"><label>Notes:</label>
+            <textarea rows="4">Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.</textarea>
+        </div>
+        <div class="row"><label>Preferred Shift:</label>
+            <input type="radio" name="shift" checked> Regular
+            <input type="radio" name="shift"> Gray Yard
+        </div>
+        <div class="row"><label>Active?</label><input type="checkbox" checked></div>
+        <div class="row"><label>Are you human?</label>
+            <input type="text" value="TIDAWO">
+        </div>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Cancel">
+    </form>
+
+    </body>
+    </html>
