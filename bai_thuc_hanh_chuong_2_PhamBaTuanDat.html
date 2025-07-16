@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    table {
+      width: 100%;
+      margin-top: 30px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Thêm Sinh Viên</h2>
+  <form>
+    <label for="maSV">Mã sinh viên:</label>
+    <input type="text" id="maSV" name="maSV" required><br><br>
+
+    <label for="hoTen">Họ và tên:</label>
+    <input type="text" id="hoTen" name="hoTen" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="ngaySinh">Ngày sinh:</label>
+    <input type="date" id="ngaySinh" name="ngaySinh"><br><br>
+
+    <label>Giới tính:</label>
+    <input type="radio" id="nam" name="gioiTinh" value="Nam">
+    <label for="nam">Nam</label>
+    <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+    <label for="nu">Nữ</label><br><br>
+
+    <label for="ghiChu">Ghi chú:</label><br>
+    <textarea id="ghiChu" name="ghiChu" rows="4" cols="50"></textarea><br><br>
+
+    <button type="submit">Thêm sinh viên</button>
+  </form>
+
+  <h2>Danh sách Sinh viên</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Mã SV</th>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>205106666</td>
+        <td>Nguyễn Văn An</td>
+        <td>anvannguyen@gmail.com</td>
+        <td>Nam</td>
+        <td>2002-01-01</td>
+        <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>214104234</td>
+        <td>Chu Khánh Linh</td>
+        <td>chukhanhlinh2001@gmail.com</td>
+        <td>Nữ</td>
+        <td>2001-12-12</td>
+        <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>2222222222</td>
+        <td>Lê Văn C</td>
+        <td>c@gmail.com</td>
+        <td>Nam</td>
+        <td>2000-05-15</td>
+        <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
