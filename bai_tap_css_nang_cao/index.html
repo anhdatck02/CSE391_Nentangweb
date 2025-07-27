@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên</title>
+    <link rel="stylesheet" href="style.css">    
+    </head>    
+    <body>
+            <div class="navbar"
+                <h1> Quản lý sinh viên</h1>
+            </div>
+          
+            <main class="container">
+              
+                <section class="form-section">
+                          <h2>Thêm Sinh Viên</h2>
+                <form>
+                <label for="maSV">Mã sinh viên:</label>
+                <input type="text" id="maSV" name="maSV" required><br>
+
+                <label for="hoTen">Họ và tên:</label>
+                <input type="text" id="hoTen" name="hoTen" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="ngaySinh">Ngày sinh:</label>
+                <input type="date" id="ngaySinh" name="ngaySinh"><br>
+
+                <label>Giới tính:</label>
+                <input type="radio" id="nam" name="gioiTinh" value="Nam">
+                <label for="nam">Nam</label>
+                <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                <label for="nu">Nữ</label><br><br>
+
+                <label for="ghiChu">Ghi chú:</label>
+                <textarea id="ghiChu" name="ghiChu" rows="3" cols="40"></textarea><br>
+
+                <button type="submit">Thêm sinh viên</button>
+            </form>
+            </section>
+       
+            <section class="table-section">
+                 <h2>Danh sách Sinh viên</h2>
+            <table>
+            <table id="studentTable">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>SV001</td>
+                <td>Nguyễn Văn A</td>
+                <td>a@gmail.com</td>
+                <td>Nam</td>
+                <td>2002-01-01</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+            <tr >
+                <td>2</td>
+                <td>SV002</td>
+                <td>Trần Thị B</td>
+                <td>b@gmail.com</td>
+                <td>Nữ</td>
+                <td>2001-12-12</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>SV003</td>
+                <td>Lê Văn C</td>
+                <td>c@gmail.com</td>
+                <td>Nam</td>
+                <td>2000-05-15</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+                </tbody>
+                </table>
+                </table>
+                
+            </section>
+            
+            </main> 
+            <div class="footer">
+                <p>© 2025 - Phần mềm Quản lý Sinh viên</p>
+            </div>
+            
+
+        </body>
+            
+
+</html>
