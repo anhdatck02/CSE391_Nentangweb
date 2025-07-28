@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên</title>
+    <link rel="stylesheet" href="style.css">    
+    </head>    
+    <body>
+            <div class="navbar"
+                <h1> Quản lý sinh viên</h1>
+            </div>
+          
+            <main class="container">
+              
+                <section class="form-section">
+                          <h2>Thêm Sinh Viên</h2>
+                <form>
+                <label for="maSV">Mã sinh viên:</label>
+                <input type="text" id="maSV" name="maSV" required><br>
+
+                <label for="hoTen">Họ và tên:</label>
+                <input type="text" id="hoTen" name="hoTen" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="ngaySinh">Ngày sinh:</label>
+                <input type="date" id="ngaySinh" name="ngaySinh"><br>
+
+                <label>Giới tính:</label>
+                <input type="radio" id="nam" name="gioiTinh" value="Nam">
+                <label for="nam">Nam</label>
+                <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                <label for="nu">Nữ</label><br><br>
+
+                <label for="ghiChu">Ghi chú:</label>
+                <textarea id="ghiChu" name="ghiChu" rows="3" cols="40"></textarea><br>
+
+                <button type="submit">Thêm sinh viên</button>
+            </form>
+            </section>
+       
+            <section class="table-section">
+                 <h2>Danh sách Sinh viên</h2>
+            <table>
+            <table id="studentTable">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>SV001</td>
+                <td>Nguyễn Văn A</td>
+                <td>a@gmail.com</td>
+                <td>Nam</td>
+                <td>2002-01-01</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+            <tr >
+                <td>2</td>
+                <td>SV002</td>
+                <td>Trần Thị B</td>
+                <td>b@gmail.com</td>
+                <td>Nữ</td>
+                <td>2001-12-12</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>SV003</td>
+                <td>Lê Văn C</td>
+                <td>c@gmail.com</td>
+                <td>Nam</td>
+                <td>2000-05-15</td>
+                <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+            </tr>
+                </tbody>
+                </table>
+                </table>
+                
+            </section>
+            
+            </main> 
+            <div class="footer">
+                <p>© 2025 - Phần mềm Quản lý Sinh viên</p>
+            </div>
+            <script>
+                const form = document.querySelector("form");
+                const tableBody = document.querySelector("#studentTable tbody");
+                let editRow = null;
+
+                function showAlert(msg) {
+                    alert(msg);
+                }
+
+                function validateForm(maSV, hoTen, email) {
+                    if (!maSV || !hoTen || !email) {
+                    showAlert("Vui lòng nhập đầy đủ Mã SV, Họ tên và Email.");
+                    return false;
+                    }
+                    if (!email.includes('@')) {
+                    showAlert("Email không hợp lệ.");
+                    return false;
+                    }
+                    if (hoTen.length < 3) {
+                    showAlert("Họ tên quá ngắn.");
+                    return false;
+                    }
+                    return true;
+                }
+
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const maSV = document.getElementById("maSV").value.trim();
+                    const hoTen = document.getElementById("hoTen").value.trim();
+                    const email = document.getElementById("email").value.trim();
+                    const ngaySinh = document.getElementById("ngaySinh").value;
+                    const gioiTinhInput = document.querySelector('input[name="gioiTinh"]:checked');
+                    const gioiTinh = gioiTinhInput ? gioiTinhInput.value : "";
+                    const ghiChu = document.getElementById("ghiChu").value.trim();
+
+                    if (!validateForm(maSV, hoTen, email)) return;
+
+                    if (editRow) {
+                    // Sửa
+                    editRow.cells[1].innerText = maSV;
+                    editRow.cells[2].innerText = hoTen;
+                    editRow.cells[3].innerText = email;
+                    editRow.cells[4].innerText = gioiTinh;
+                    editRow.cells[5].innerText = ngaySinh;
+                    showAlert("Cập nhật sinh viên thành công!");
+                    editRow = null;
+                    } else {
+                    // Thêm mới
+                    const newRow = tableBody.insertRow();
+                    const stt = tableBody.rows.length;
+                    newRow.innerHTML = `
+                        <td>${stt}</td>
+                        <td>${maSV}</td>
+                        <td>${hoTen}</td>
+                        <td>${email}</td>
+                        <td>${gioiTinh}</td>
+                        <td>${ngaySinh}</td>
+                        <td><a href="#" class="edit">Sửa</a> | <a href="#" class="delete">Xóa</a></td>
+                    `;
+                    showAlert("Đã thêm sinh viên thành công!");
+                    }
+
+                    form.reset();
+                });
+
+                // Xử lý nút Sửa/Xóa trong bảng
+                tableBody.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = e.target;
+                    const row = target.closest("tr");
+
+                    if (target.classList.contains("delete")) {
+                    if (confirm("Bạn có chắc muốn xóa sinh viên này?")) {
+                        row.remove();
+                        showAlert("Đã xóa sinh viên.");
+                        // cập nhật lại STT
+                        [...tableBody.rows].forEach((r, i) => {
+                        r.cells[0].innerText = i + 1;
+                        });
+                    }
+                    }
+
+                    if (target.classList.contains("edit")) {
+                    editRow = row;
+                    document.getElementById("maSV").value = row.cells[1].innerText;
+                    document.getElementById("hoTen").value = row.cells[2].innerText;
+                    document.getElementById("email").value = row.cells[3].innerText;
+                    const gioiTinh = row.cells[4].innerText;
+                    document.getElementById("nam").checked = gioiTinh === "Nam";
+                    document.getElementById("nu").checked = gioiTinh === "Nữ";
+                    document.getElementById("ngaySinh").value = row.cells[5].innerText;
+                    }
+                });
+                </script>
+
+        </body>
+            
+
+</html>
