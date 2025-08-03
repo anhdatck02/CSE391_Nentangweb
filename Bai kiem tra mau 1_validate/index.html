@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Nhân Viên - TLU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container">
+
+    <!-- Thanh điều hướng trên cùng -->
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <h1>TLU</h1>
+            <a href="#">Home</a>
+            <a href="#" class="active">Employees</a>
+        </div>
+        <div class="search-area">
+            <input type="text" placeholder="Search">
+            <button>Search</button>
+        </div>
+    </nav>
+
+    <div class="manage-employees-header">
+        <h2>Manage Employees</h2>
+        <div class="action-buttons">
+            <button type="button" id="Delete-btn">
+                Delete
+            </button>
+            <button type="button" id="Add-btn">
+                Add New Employee
+            </button>
+        </div>
+    </div>
+
+    <div class="content-table">
+        <table id="employeeDataTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllCheckbox"></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <p id="showingEntriesText">Showing 0 out of 0 entries</p>
+        </div>
+        <div class="pagination-buttons" id="paginationButtons">
+        </div>
+    </div>
+
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalButton">&times;</span>
+            <h2 id="modalTitle">Thêm sinh viên</h2>
+            <form id="emForm">
+                <div id="thongbao" class="notification hidden"></div>
+                <input type="hidden" id="emId"> 
+
+                <div class="form-group">
+                    <label for="emName">Name</label>
+                    <input type="text" id="emName" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="emEmail">Email</label>
+                    <input type="email" id="emEmail" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="emAddress">Address</label>
+                    <input type="text" id="emAddress" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="emPhone">Phone</label>
+                    <input type="tel" id="emPhone" required inputmode="numeric">
+                    <span class="error-message"></span>
+                </div>
+
+                <button type="submit" id="submitFormButton" class="form-submit-button">
+                    Thêm
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
